@@ -1,12 +1,15 @@
 #============= qti_init_shell ==============
+# allow qti_init_shell exported3_default_prop:property_service set;
 allow qti_init_shell bluetooth_efs_file:dir { read search };
 allow qti_init_shell bluetooth_efs_file:file r_file_perms;
-allow qti_init_shell bluetooth_loader_exec:file { execute getattr open read };
 allow qti_init_shell bluetooth_loader_exec:file execute_no_trans;
+allow qti_init_shell bluetooth_loader_exec:file { execute getattr open read };
 allow qti_init_shell ctl_start_prop:property_service set;
+allow qti_init_shell default_prop:file r_file_perms;
 allow qti_init_shell efs_file:dir search;
-allow qti_init_shell exported3_default_prop:property_service set;
 allow qti_init_shell file_contexts_file:file { getattr open read };
+allow qti_init_shell radio_core_data_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow qti_init_shell radio_core_data_file:file rw_file_perms;
 allow qti_init_shell sysfs_android_usb:file write;
+allow qti_init_shell telephony_config_prop:property_service set;
 allow qti_init_shell vfat:dir search;
-

@@ -39,11 +39,14 @@
 # HIDL
 #
 
+# Audio
+/(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.service\.msm8916                u:object_r:hal_audio_default_exec:s0
+
 # DRM
 # kanged from https://github.com/LineageOS/android_device_motorola_msm8916-common/tree/lineage-18.1/sepolicy
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine             u:object_r:hal_drm_widevine_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.3-service\.clearkey             u:object_r:hal_drm_clearkey_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.4-service\.clearkey             u:object_r:hal_drm_clearkey_exec:s0
 /data/vendor/mediadrm(/.*)?                                                              u:object_r:media_data_file:s0
 
 # Gatekeeper
@@ -63,3 +66,25 @@
 
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.msm8916            u:object_r:hal_power_default_exec:s0
+
+/vendor/bin/qseecomd 																	 u:object_r:vendor_file:s0
+# init:    1] init: Could not start service 'vendor.config_bt_addr' as part of class 'core': File /vendor/bin/btnvtool
+# (labeled "u:object_r:btnvtool_exec:s0") has incorrect label or no domain transition from u:r:init:s0
+# to another SELinux domain defined.
+vendor.config_bt_addr																	 u:object_r:btnvtool_exec:s0
+/vendor/bin/btnvtool																	 u:object_r:btnvtool_exec:s0
+/vendor/bin/rmt_storage																	 u:object_r:vendor_file:s0
+/vendor/bin/mm-qcamera-daemon															 u:object_r:vendor_file:s0
+/vendor/bin/thermal-engine																 u:object_r:vendor_file:s0
+/vendor/bin/qcom-system-daemon 															 u:object_r:vendor_file:s0
+/vendor/bin/init.class_main.sh 															 u:object_r:vendor_file:s0
+/vendor/bin/irsc_util 															 		 u:object_r:vendor_file:s0
+/system/bin/wcnss-service 															 	 u:object_r:vendor_file:s0
+# init: Could not start service 'wcnss-service' as part of class 'main': File /system/bin/wcnss_service
+# (labeled "u:object_r:vendor_file:s0") has incorrect label or no domain transition from u:r:init:s0
+# to another SELinux domain defined.
+wcnss-service 															 	 			 u:object_r:vendor_file:s0
+/vendor/bin/init.qcom.usb.sh 															 u:object_r:vendor_file:s0
+/vendor/bin/time_daemon 															 	 u:object_r:vendor_file:s0
+/vendor/bin/loc_launcher 															 	 u:object_r:vendor_file:s0
+/vendor/bin/init.qcom.sh 															 	 u:object_r:vendor_file:s0

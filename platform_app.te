@@ -1,2 +1,2 @@
 #============= platform_app ==============
-allow platform_app exported_audio_prop:file open;
+# allow platform_app exported_audio_prop:file open;

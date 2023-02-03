@@ -5,4 +5,4 @@ allow mediaserver device:chr_file { ioctl open read write };
 allow mediaserver exported_camera_prop:file { getattr open read };
 allow mediaserver hal_camera_default:binder { call transfer };
 allow mediaserver init:unix_dgram_socket sendto;
-
+allow mediaserver package_native_service:service_manager find;

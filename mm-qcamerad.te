@@ -1,2 +1,5 @@
 #============= mm-qcamerad ==============
-allow mm-qcamerad sysfs:file { getattr open read write };
+allow mm-qcamerad default_prop:file r_file_perms;
+allow mm-qcamerad sysfs:file rw_file_perms;
+allow mm-qcamerad sysfs_camera_writable:dir search;
+allow mm-qcamerad sysfs_camera_writable:file rw_file_perms;
