@@ -2,4 +2,6 @@
 allow vold efs_file:dir { ioctl open read };
 allow vold hal_bootctl_hwservice:hwservice_manager find;
 allow vold persist_data_file:dir read;
-allow vold sysfs_mmc_host:file write;
+allow vold sysfs_mmc_host:file rw_file_perms;
+allow vold system_server:process getattr;
+allow vold vdc:process getattr;

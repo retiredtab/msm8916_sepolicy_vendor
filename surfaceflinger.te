@@ -1,7 +1,13 @@
 #============= surfaceflinger ==============
+allow surfaceflinger bootanim:file r_file_perms;
+allow surfaceflinger bootanim:dir search;
+allow surfaceflinger bootanim:process getattr;
 allow surfaceflinger device:chr_file rw_file_perms;
 allow surfaceflinger hal_graphics_allocator_hwservice:hwservice_manager add;
+allow surfaceflinger platform_app:process getattr;
+allow surfaceflinger priv_app:process getattr;
 allow surfaceflinger sysfs:file r_file_perms;
+allow surfaceflinger system_app:process getattr;
+allow surfaceflinger system_server:process getattr;
 allow surfaceflinger vendor_default_prop:file r_file_perms;
 allow surfaceflinger vfat:dir search;
-
