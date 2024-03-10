@@ -1,3 +1,10 @@
+# Fix DRM not being able to create directory
+# by updating this rule
+# allow vendor_init media_data_file:dir create_dir_perms;
+
+# init: processing action (init.svc.mediadrm=running) from (/vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc:1)
+# init: Command 'mkdir /data/vendor/mediadrm 0770 media mediadrm' action=init.svc.mediadrm=running (/vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc:2) took 4ms and failed: mkdir() failed on /data/vendor/mediadrm: Permission denied
+
 #============= vendor_init ==============
 allow vendor_init audio_data_file:dir setattr;
 allow vendor_init bluetooth_data_file:dir setattr;
